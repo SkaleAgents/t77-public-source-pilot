@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: revision-probe
+  namespace: skaleagents-t77-pilot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: revision-probe
+  template:
+    metadata:
+      labels:
+        app: revision-probe
+    spec:
+      hostNetwork: true
+      containers:
+        - name: hold
+          image: registry.k8s.io/pause:3.10
+          imagePullPolicy: IfNotPresent
