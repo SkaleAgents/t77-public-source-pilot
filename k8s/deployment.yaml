@@ -13,7 +13,7 @@ spec:
       labels:
         app: revision-probe
     spec:
-      hostNetwork: true
+      hostNetwork: false
       containers:
         - name: hold
           image: registry.k8s.io/pause:3.10
